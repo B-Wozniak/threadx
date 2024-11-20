@@ -47,7 +47,7 @@ extern TX_THREAD                *_tx_thread_current_ptr;
    example.  */
 
 UINT                            _tx_win32_timer_id;
-VOID CALLBACK                   _tx_win32_timer_interrupt(UINT wTimerID, UINT msg, DWORD dwUser, DWORD dw1, DWORD dw2);
+VOID CALLBACK                   _tx_win32_timer_interrupt(UINT wTimerID, UINT msg, DWORD_PTR dwUser, DWORD_PTR dw1, DWORD_PTR dw2);
 
 
 #ifdef TX_WIN32_DEBUG_ENABLE
@@ -275,7 +275,7 @@ void _tx_initialize_start_interrupts(void)
 /* Define the ThreadX system timer interrupt.  Other interrupts may be simulated
    in a similar way.  */
 
-VOID CALLBACK _tx_win32_timer_interrupt(UINT wTimerID, UINT msg, DWORD dwUser, DWORD dw1, DWORD dw2)
+VOID CALLBACK _tx_win32_timer_interrupt(UINT wTimerID, UINT msg, DWORD_PTR dwUser, DWORD_PTR dw1, DWORD_PTR dw2)
 {
     /* Call ThreadX context save for interrupt preparation.  */
     _tx_thread_context_save();
